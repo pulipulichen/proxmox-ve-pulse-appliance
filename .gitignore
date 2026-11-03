@@ -1,2 +1,4 @@
 .env
+docker-auth.env
+data/
 *.env.local

@@ -1,0 +1,19 @@
+services:
+  pulse:
+    image: ${PULSE_IMAGE:-rcourtman/pulse:latest}
+    container_name: pulse
+    restart: unless-stopped
+    init: true
+    ports:
+      - "${PULSE_PORT:-80}:7655"
+    volumes:
+      - /opt/pulse/data:/data
+    env_file:
+      - /opt/pulse/docker-auth.env
+    environment:
+      TZ: ${TZ:-Asia/Taipei}
+      PULSE_DEPLOYMENT_METHOD: docker_compose
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
