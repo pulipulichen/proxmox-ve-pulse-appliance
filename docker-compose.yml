@@ -9,7 +9,8 @@ services:
     volumes:
       - /opt/pulse/data:/data
     env_file:
-      - /opt/pulse/docker-auth.env
+      - path: /opt/pulse/docker-auth.env
+        format: raw
     environment:
       TZ: ${TZ:-Asia/Taipei}
       PULSE_DEPLOYMENT_METHOD: docker_compose
