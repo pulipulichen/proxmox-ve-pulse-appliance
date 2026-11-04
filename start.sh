@@ -47,6 +47,7 @@ os.chmod("docker-auth.env", 0o600)
 PY
   unset PULSE_INITIAL_PASSWORD password
 fi
+docker compose config --quiet
 docker compose up -d
 ip="$(hostname -I | awk '{print $1}')"
 echo "Pulse: http://${ip:-CT-IP}/ (admin)"
