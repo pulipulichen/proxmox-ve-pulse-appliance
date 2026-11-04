@@ -35,7 +35,7 @@ if [[ ! -f docker-auth.env ]]; then
   printf 'Pulse initial admin password (Enter to use the requested default): '
   IFS= read -rs password
   echo
-  password="${password:-1QAZ2wsx}"
+  password="${password:-!QAZ2wsx}"
   export PULSE_INITIAL_PASSWORD="$password"
   python3 - <<'PY'
 import bcrypt, os
